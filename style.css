@@ -34,3 +34,35 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px; /* Slightly smaller on smaller screens */
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px; /* Even smaller for very small screens */
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
