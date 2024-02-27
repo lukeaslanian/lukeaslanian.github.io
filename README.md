@@ -1,3 +1,3 @@
 # lukeaslanian.github.io
 Personal Website
-lukeaslanian.com
+https://lukeaslanian.com
