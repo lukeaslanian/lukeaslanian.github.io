@@ -18,6 +18,12 @@ body, html {
     height: 100%;
 }
 
+.symbol {
+    font-size: 48px; /* Large font size for the symbol */
+    color: #008080; /* Teal color to match your theme */
+    margin: 20px 0; /* Adds space above and below the symbol */
+}
+
 .container {
     background-color: rgba(253, 245, 230, 0.9); /* Cream-colored off-white background */
     text-align: center;
