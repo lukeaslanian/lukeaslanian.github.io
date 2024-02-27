@@ -23,7 +23,7 @@ body {
 
 .symbol {
     font-size: 64px;
-    color: #008080; /* Adjusted to maintain consistency */
+    color: #008080; /* Teal color */
 }
 
 a {
@@ -35,34 +35,27 @@ a:hover {
     text-decoration: underline;
 }
 
-
 /* Responsive Design Adjustments */
 @media (max-width: 768px) {
-    .container {
-        margin: 10px;
-        padding: 15px;
+    .bio {
+        width: 90%; /* Adjust width for smaller screens */
     }
 
-    h1 {
-        font-size: 24px; /* Slightly smaller on smaller screens */
-    }
-
-    p {
-        font-size: 14px;
+    .symbol {
+        font-size: 48px; /* Decrease font size for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        margin: 5px;
-        padding: 10px;
+    .name {
+        font-size: 36px; /* Decrease font size for smaller screens */
     }
 
-    h1 {
-        font-size: 20px; /* Even smaller for very small screens */
+    .bio {
+        width: 95%; /* Adjust width for even smaller screens */
     }
 
-    p {
-        font-size: 12px;
+    .symbol {
+        font-size: 32px; /* Decrease font size further for very small screens */
     }
 }
