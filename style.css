@@ -8,6 +8,11 @@ body {
     padding: 50px 0;
 }
 
+.container {
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 800px; /* Set maximum width for the container */
+}
+
 .name {
     font-family: 'EB Garamond', serif;
     font-size: 48px;
@@ -17,7 +22,7 @@ body {
 .bio {
     font-family: 'Inter', sans-serif;
     margin: 20px auto;
-    width: 80%;
+    width: 100%; /* Set width to 100% for responsiveness */
     max-width: 600px;
 }
 
@@ -37,8 +42,12 @@ a:hover {
 
 /* Responsive Design Adjustments */
 @media (max-width: 768px) {
-    .bio {
-        width: 90%; /* Adjust width for smaller screens */
+    .container {
+        padding: 0 20px; /* Add padding to the container for smaller screens */
+    }
+
+    .name {
+        font-size: 36px; /* Decrease font size for smaller screens */
     }
 
     .symbol {
@@ -48,11 +57,7 @@ a:hover {
 
 @media (max-width: 480px) {
     .name {
-        font-size: 36px; /* Decrease font size for smaller screens */
-    }
-
-    .bio {
-        width: 95%; /* Adjust width for even smaller screens */
+        font-size: 24px; /* Decrease font size further for very small screens */
     }
 
     .symbol {
