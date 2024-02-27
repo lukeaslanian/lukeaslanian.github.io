@@ -21,7 +21,7 @@ body, html {
 .symbol {
     font-size: 48px; /* Large font size for the symbol */
     color: #008080; /* Teal color to match your theme */
-    margin: 20px 0; /* Adds space above and below the symbol */
+    margin: 10px 0; /* Adds space above and below the symbol */
 }
 
 .container {
