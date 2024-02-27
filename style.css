@@ -11,6 +11,8 @@ body {
 .container {
     margin: 0 auto; /* Center the container horizontally */
     max-width: 800px; /* Set maximum width for the container */
+    padding: 0 20px; /* Add padding to the container for smaller screens */
+    box-sizing: border-box; /* Include padding and border in the container's total width */
 }
 
 .name {
@@ -42,10 +44,6 @@ a:hover {
 
 /* Responsive Design Adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 20px; /* Add padding to the container for smaller screens */
-    }
-
     .name {
         font-size: 36px; /* Decrease font size for smaller screens */
     }
