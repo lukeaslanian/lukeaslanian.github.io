@@ -1,18 +1,19 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #F5F5DC; /* Cream-colored off-white background */
-    background-image: url('background.JPG');
-    background-size: cover;
     color: #008080; /* Teal color */
     text-align: center;
     padding: 50px 0;
+    margin: 0;
 }
 
 .container {
-    margin: 0 auto; /* Center the container horizontally */
-    max-width: 800px; /* Set maximum width for the container */
-    padding: 0 20px; /* Add padding to the container for smaller screens */
-    box-sizing: border-box; /* Include padding and border in the container's total width */
+    background-image: url('background.JPG');
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
 }
 
 .name {
@@ -23,14 +24,8 @@ body {
 
 .bio {
     font-family: 'Inter', sans-serif;
-    margin: 20px auto;
-    width: 100%; /* Set width to 100% for responsiveness */
-    max-width: 600px;
-}
-
-.symbol {
-    font-size: 64px;
-    color: #008080; /* Teal color */
+    margin-top: 20px;
+    font-size: 18px;
 }
 
 a {
@@ -40,25 +35,4 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-/* Responsive Design Adjustments */
-@media (max-width: 768px) {
-    .name {
-        font-size: 36px; /* Decrease font size for smaller screens */
-    }
-
-    .symbol {
-        font-size: 48px; /* Decrease font size for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .name {
-        font-size: 24px; /* Decrease font size further for very small screens */
-    }
-
-    .symbol {
-        font-size: 32px; /* Decrease font size further for very small screens */
-    }
 }
