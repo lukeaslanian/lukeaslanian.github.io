@@ -1,0 +1,17 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Luke Aslanian"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2006"
+description = "I am a recent graduate from Cornell University, where I studied Philosophy, History, and Near Eastern Studies and was a College Scholar. I currently work at the GPO as an IT Specialist. Please see my LinkedIn for more details or to reach out."
+
+[author]
+name = "Luke Aslanian"
+links = [ { linkedin = "https://www.linkedin.com/in/la348" } ]
+headline = "I am a recent graduate from Cornell University, where I studied Philosophy, History, and Near Eastern Studies and was a College Scholar. I currently work at the GPO as an IT Specialist working with C#, XAML, and more. Please see my LinkedIn for more details or to reach out."
+image = "profile.jpg"
