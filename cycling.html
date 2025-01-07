@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DC Cycling Benefits & Safety</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Base styles */
         body {
-            font-family: 'Inter', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Gill Sans', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -50,193 +51,21 @@
         }
 
         .nav-btn:hover {
-            background: #e0f7e0; /* Matcha green */
+            background: #e0f7e0;
         }
 
         .nav-btn.active {
-            background: #907AD6; /* Wisteria purple */
+            background: #4CAF50;
             color: #fff;
         }
 
-        /* Slides */
-        .slide {
-            display: none;
-            background: #fff;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-
-        .slide.active {
-            display: block;
-        }
-
-        /* Grid layout */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        /* Cards */
-        .card {
-            background: #fff;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        /* Images */
-        .img-container {
-            position: relative;
-            aspect-ratio: 16/9;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .img-container img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Typography */
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #907AD6; }
-        h2 { font-size: 2rem; margin-bottom: 1rem; color: #907AD6; }
-        h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
-        
-        /* Lists */
-        ul {
-            list-style: none;
-            padding-left: 1.5rem;
-        }
-
-        ul li::before {
-            content: "•";
-            color: #907AD6;
-            font-weight: bold;
-            display: inline-block;
-            width: 1rem;
-            margin-left: -1rem;
-        }
-
-        /* Heat map */
-        .heat-map {
-            font-family: monospace;
-            white-space: pre;
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        /* Controls */
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 2rem;
-        }
-
-        .control-btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 0.5rem;
-            background: #907AD6;
-            color: white;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .control-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* Source attribution */
-        .source {
-            font-size: 0.875rem;
-            color: #64748b;
-            margin-top: 0.5rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container { padding: 1rem; }
-            .grid { grid-template-columns: 1fr; }
-            .nav-btn span { display: none; }
-            .nav-btn { padding: 0.75rem; }
-        }
-
-        /* Chart specific styles */
-        #growth-chart {
-            max-width: 100%;
-            height: 300px;
-        }
-    </style>
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
-</head>
-<body>
-    <div class="container">
-        <!-- Navigation -->
-        <nav class="nav" id="nav">
-            <button class="nav-btn active" data-slide="intro">🚲 <span>Intro</span></button>
-            <button class="nav-btn" data-slide="rights">⚖️ <span>Laws</span></button>
-            <button class="nav-btn" data-slide="trails">🌲 <span>Trails</span></button>
-            <button class="nav-btn" data-slide="more-trails">🌿 <span>More Trails</span></button>
-            <button class="nav-btn" data-slide="community">👥 <span>Community</span></button>
-            <button class="nav-btn" data-slide="safety">🛡️ <span>Safety</span></button>
-            <button class="nav-btn" data-slide="equipment">🔧 <span>Equipment</span></button>
-            <button class="nav-btn" data-slide="resources">📚 <span>Resources</span></button>
-        </nav>
-
-        <!-- Slides -->
-
-        // ... existing navigation code ...
-
-        /* Add new section for health benefits */
-        <section id="health-benefits" class="container">
-            <h2>Health Benefits of Cycling</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Cardiovascular Health</h3>
-                    <p>Regular cycling strengthens your heart muscles, lowers resting pulse, and reduces blood fat levels. It can decrease the risk of cardiovascular diseases by up to 50%.</p>
-                </div>
-        
-                <div class="benefit-card">
-                    <i class="fas fa-brain"></i>
-                    <h3>Mental Wellbeing</h3>
-                    <p>Cycling releases endorphins, reducing stress and anxiety. The outdoor activity can improve mood, boost creativity, and enhance overall mental health.</p>
-                </div>
-        
-                <div class="benefit-card">
-                    <i class="fas fa-weight"></i>
-                    <h3>Weight Management</h3>
-                    <p>An hour of cycling can burn 400-1000 calories, depending on intensity. It's an excellent low-impact way to maintain healthy weight and boost metabolism.</p>
-                </div>
-        
-                <div class="benefit-card">
-                    <i class="fas fa-bone"></i>
-                    <h3>Joint Health</h3>
-                    <p>As a low-impact exercise, cycling improves joint mobility without stressing your joints. Perfect for overall joint health and arthritis management.</p>
-                </div>
-            </div>
-        </section>
-        
-        <style>
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             padding: 2rem 0;
         }
-        
+
         .benefit-card {
             background: white;
             padding: 2rem;
@@ -245,434 +74,188 @@
             transition: transform 0.3s ease;
             text-align: center;
         }
-        
+
         .benefit-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .benefit-card i {
             font-size: 2.5rem;
             color: #4CAF50;
             margin-bottom: 1rem;
         }
-        
+
         .benefit-card h3 {
             color: #333;
             margin-bottom: 1rem;
         }
-        
+
         .benefit-card p {
             color: #666;
             line-height: 1.6;
         }
-        </style>
-        
-        // ... rest of existing code ...
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <button class="nav-btn active" data-slide="intro">🚲 <span>Intro</span></button>
+        <button class="nav-btn" data-slide="rights">⚖️ <span>Laws</span></button>
+        <button class="nav-btn" data-slide="trails">🌲 <span>Trails</span></button>
+        <button class="nav-btn" data-slide="more-trails">🌿 <span>More Trails</span></button>
+        <button class="nav-btn" data-slide="community">👥 <span>Community</span></button>
+        <button class="nav-btn" data-slide="safety">🛡️ <span>Safety</span></button>
+        <button class="nav-btn" data-slide="equipment">🔧 <span>Equipment</span></button>
+        <button class="nav-btn" data-slide="resources">📚 <span>Resources</span></button>
+        <button class="nav-btn" data-slide="health-benefits">❤️ <span>Health Benefits</span></button>
+    </nav>
 
-        
-        <div id="slides">
-            <!-- Intro -->
-            <section id="intro" class="slide active">
-                <h1>DC Cycling Benefits & Safety</h1>
-                <h2>A DC Perspective</h2>
-                <p>Safety and Health Awareness Committee</p>
-                <p>January 7, 2025</p>
-            </section>
+    <div id="slides">
+        <!-- Intro -->
+        <section id="intro" class="slide active">
+            <h2>Welcome to Cycling</h2>
+            <p>Discover the joys and benefits of cycling.</p>
+        </section>
 
-            <!-- Laws & Rights -->
-            <section id="rights" class="slide">
-                <h2>DC Cycling Laws & Rights</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Key Rights</h3>
-                        <ul>
-                            <li>Right to ride on road - not required to "stay out of the way"</li>
-                            <li>Stop signs as yield signs (must yield to pedestrians/traffic)</li>
-                            <li>No requirement to use bike lanes</li>
-                            <li>Can ride two abreast in one lane</li>
-                            <li>Can take full lane when needed for safety</li>
-                            <li>Drivers must give 3 feet when passing</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Common Legal Scenarios</h3>
-                        <ul>
-                            <li>"Dooring" - car door opener at fault</li>
-                            <li>Cars can't park in bike lanes (report to 311)</li>
-                            <li>Construction sites must provide detours</li>
-                            <li>Drivers must yield in traffic circles</li>
-                        </ul>
-                        <p class="source">Source: WABA Pocket Guide</p>
-                    </div>
-                </div>
-            </section>
+        <!-- Rights -->
+        <section id="rights" class="slide">
+            <h2>Cycling Laws</h2>
+            <p>Understand the laws and regulations for cycling in your area.</p>
+        </section>
 
-            <!-- Trails -->
-            <section id="trails" class="slide">
-                <h2>Major DC Area Trails</h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="img-container">
-                            <img src="https://lukeaslanian.com/cycling-images/IMG_4424.jpg" 
-                                 alt="Trail with yellow line"
-                                 loading="lazy">
-                        </div>
-                        <h3>Capital Crescent Trail (CCT)</h3>
-                        <ul>
-                            <li>Georgetown to Bethesda (7 miles)</li>
-                            <li>Paved, gentle grade</li>
-                            <li>Popular for commuting and recreation</li>
-                            <li>Connects to Rock Creek Trail</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <div class="img-container">
-                            <img src="https://lukeaslanian.com/cycling-images/IMG_3444.jpg" 
-                                 alt="Wooded bike trail with red bike"
-                                 loading="lazy">
-                        </div>
-                        <h3>Metropolitan Branch Trail (MBT)</h3>
-                        <ul>
-                            <li>Union Station to Silver Spring (8+ miles)</li>
-                            <li>Well-lit urban trail</li>
-                            <li>Parallel to Metro Red Line</li>
-                            <li>Direct route to NoMa, Brookland</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- More Trails -->
-            <section id="more-trails" class="slide">
-                <h2>Additional DC Area Trails</h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="img-container">
-                            <img src="https://lukeaslanian.com/cycling-images/IMG_4601.jpg" 
-                                 alt="White bike at scenic overlook"
-                                 loading="lazy">
-                        </div>
-                        <h3>Rock Creek Park Trail</h3>
-                        <ul>
-                            <li>Georgetown to Maryland (9+ miles)</li>
-                            <li>Car-free weekends on Beach Drive</li>
-                            <li>Shaded, scenic route</li>
-                            <li>Multiple access points</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Anacostia Riverwalk Trail</h3>
-                        <ul>
-                            <li>20+ miles along river</li>
-                            <li>Connected to Navy Yard</li>
-                            <li>New bridges for better access</li>
-                            <li>Kenilworth Gardens access</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Community -->
-            <section id="community" class="slide">
-                <h2>DC Cycling Community</h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="img-container">
-                            <img src="https://lukeaslanian.com/cycling-images/IMG_4285.jpg" 
-                                 alt="Group bike ride"
-                                 loading="lazy">
-                        </div>
-                        <h3>Local Groups</h3>
-                        <ul>
-                            <li>626 DC: Weekly group rides</li>
-                            <li>DC Bike Party: Monthly themed rides</li>
-                            <li>BicycleSpace A.M. Coffee Rides</li>
-                            <li>WABA Community Rides</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Capital Bikeshare</h3>
-                        <ul>
-                            <li>Single trip: $1 + $0.05/min</li>
-                            <li>24-Hour Pass: $8</li>
-                            <li>Monthly: $20</li>
-                            <li>Annual: $95</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Growth in Cycling Commuters</h3>
-                        <canvas id="growth-chart"></canvas>
-                        <p class="source">Indexed to 2019 baseline (100)</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Safety -->
-            <section id="safety" class="slide">
-                <h2>Safety Statistics</h2>
+        <!-- Trails -->
+        <section id="trails" class="slide">
+            <h2>Popular Trails</h2>
+            <div class="grid">
                 <div class="card">
-                    <h3>Crash Heat Map</h3>
-                    <div class="heat-map">Crash Frequency: Low [░] Medium [▒] High [█]
-
-H St NE:      ░░▒▒██▒▒░░
-14th St NW:   ░▒▒██▒▒░░░
-M St NW:      ░░▒▒▒██▒░░
-Penn Ave:     ░░░▒▒▒░░░░</div>
-                    <p class="source">Source: DDOT Vision Zero Data 2023</p>
-                </div>
-                <div class="card">
-                    <h3>Common Crash Factors</h3>
+                    <h3>Capital Crescent Trail</h3>
                     <ul>
-                        <li>75% occur at intersections where drivers fail to notice cyclists</li>
-                        <li>Most dangerous times: 4-7 PM (peak traffic)</li>
-                        <li>Driver behaviors in crashes:
-                            <ul>
-                                <li>Failing to yield right of way (38%)</li>
-                                <li>Improper turns into cyclist path (22%)</li>
-                                <li>Failing to maintain safe passing distance (15%)</li>
-                                <li>Opening car doors into cyclist path ("dooring") (12%)</li>
-                            </ul>
-                        </li>
+                        <li>Georgetown to Silver Spring (11 miles)</li>
+                        <li>Scenic views of the Potomac River</li>
+                        <li>Connects to C&O Canal Towpath</li>
                     </ul>
                 </div>
-            </section>
-
-            <!-- Equipment -->
-            <section id="equipment" class="slide">
-                <h2>Required & Recommended Equipment</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Required by DC Law</h3>
-                        <ul>
-                            <li>Front white light (500ft visibility) for night riding</li>
-                            <li>Red rear reflector (50-300ft visibility)</li>
-                            <li>Working brakes that can skid on dry pavement</li>
-                            <li>Helmet if under age 16</li>
-                            <li>Ability to make warning noise (bell or voice)</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Strongly Recommended</h3>
-                        <ul>
-                            <li>Helmet for all ages</li>
-                            <li>Rear light (not just reflector)</li>
-                            <li>Reflective gear or clothing</li>
-                            <li>Lock (U-lock recommended)</li>
-                            <li>Weather-appropriate gear</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Basic Maintenance Kit</h3>
-                        <ul>
-                            <li>Spare tube</li>
-                            <li>Tire levers</li>
-                            <li>Portable pump</li>
-                            <li>Multi-tool</li>
-                            <li>Patch kit</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Optional but Useful</h3>
-                        <ul>
-                            <li>Phone mount</li>
-                            <li>Water bottle & cage</li>
-                            <li>Small repair kit</li>
-                            <li>Bike computer/GPS</li>
-                            <li>Panniers or bike bag</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <h3>Metropolitan Branch Trail</h3>
+                    <ul>
+                        <li>Union Station to Silver Spring (8 miles)</li>
+                        <li>Urban trail with art installations</li>
+                        <li>Direct route to NoMa, Brookland</li>
+                    </ul>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Resources -->
-            <section id="resources" class="slide">
-                <h2>Local Resources & Support</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Organizations</h3>
-                        <ul>
-                            <li>WABA (Washington Area Bicyclist Association):
-                                <ul>
-                                    <li>Free urban cycling classes</li>
-                                    <li>Route planning assistance</li>
-                                    <li>Advocacy and support</li>
-                                    <li>Community events</li>
-                                </ul>
-                            </li>
-                            <li>DC Bike Ambassador Program</li>
-                            <li>Capital Bikeshare Community Partners</li>
-                        </ul>
+        <!-- More Trails -->
+        <section id="more-trails" class="slide">
+            <h2>Additional DC Area Trails</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="https://lukeaslanian.com/cycling-images/IMG_4601.jpg" 
+                             alt="White bike at scenic overlook"
+                             loading="lazy">
                     </div>
-                    <div class="card">
-                        <h3>Local Bike Shops</h3>
-                        <ul>
-                            <li>BicycleSpace:
-                                <ul>
-                                    <li>Group rides and events</li>
-                                    <li>Basic maintenance classes</li>
-                                    <li>Extensive commuter gear</li>
-                                </ul>
-                            </li>
-                            <li>Capitol Hill Bikes:
-                                <ul>
-                                    <li>Commuter expertise</li>
-                                    <li>Repair workshops</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Report Issues</h3>
-                        <ul>
-                            <li>Bike lane violations: Call 311</li>
-                            <li>Blocked bike lanes: <a href="https://www.waba.org/blockedbikelane" target="_blank">waba.org/blockedbikelane</a></li>
-                            <li>Report crashes: <a href="https://www.waba.org/crashtracker" target="_blank">waba.org/crashtracker</a></li>
-                            <li>Request bike racks: Call 311</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Digital Resources</h3>
-                        <ul>
-                            <li>DC Bike Maps (free at bike shops)</li>
-                            <li>WABA's Bike Law Guide</li>
-                            <li>Capital Bikeshare App</li>
-                            <li>DC311 App for reporting</li>
-                            <li>Popular route planning apps:
-                                <ul>
-                                    <li>Strava</li>
-                                    <li>RideWithGPS</li>
-                                    <li>Google Maps (bike layer)</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                    <h3>Rock Creek Park Trail</h3>
+                    <ul>
+                        <li>Georgetown to Maryland (9+ miles)</li>
+                        <li>Car-free weekends on Beach Drive</li>
+                        <li>Shaded, scenic route</li>
+                        <li>Multiple access points</li>
+                    </ul>
                 </div>
-            </section>
-        </div>
+                <div class="card">
+                    <h3>Anacostia Riverwalk Trail</h3>
+                    <ul>
+                        <li>20+ miles along river</li>
+                        <li>Connected to Navy Yard</li>
+                        <li>New bridges for better access</li>
+                        <li>Kenilworth Gardens access</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-        <!-- Controls -->
-        <div class="controls">
-            <button id="prev" class="control-btn" disabled>Previous</button>
-            <span id="slide-counter"></span>
-            <button id="next" class="control-btn">Next</button>
-        </div>
+        <!-- Community -->
+        <section id="community" class="slide">
+            <h2>DC Cycling Community</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Group Rides</h3>
+                    <p>Join local group rides to meet fellow cyclists and explore new routes.</p>
+                </div>
+                <div class="card">
+                    <h3>Events</h3>
+                    <p>Participate in cycling events and races throughout the year.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety -->
+        <section id="safety" class="slide">
+            <h2>Cycling Safety</h2>
+            <p>Learn about safety tips and gear to keep you safe while cycling.</p>
+        </section>
+
+        <!-- Equipment -->
+        <section id="equipment" class="slide">
+            <h2>Essential Equipment</h2>
+            <p>Discover the essential equipment you need for a safe and enjoyable ride.</p>
+        </section>
+
+        <!-- Resources -->
+        <section id="resources" class="slide">
+            <h2>Resources</h2>
+            <p>Find useful resources and links for cyclists.</p>
+        </section>
+
+        <!-- Health Benefits -->
+        <section id="health-benefits" class="slide">
+            <h2>Health Benefits of Cycling</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Cardiovascular Health</h3>
+                    <p>Regular cycling strengthens your heart muscles, lowers resting pulse, and reduces blood fat levels. It can decrease the risk of cardiovascular diseases by up to 50%.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Mental Wellbeing</h3>
+                    <p>Cycling releases endorphins, reducing stress and anxiety. The outdoor activity can improve mood, boost creativity, and enhance overall mental health.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-weight"></i>
+                    <h3>Weight Management</h3>
+                    <p>An hour of cycling can burn 400-1000 calories, depending on intensity. It's an excellent low-impact way to maintain healthy weight and boost metabolism.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-bone"></i>
+                    <h3>Joint Health</h3>
+                    <p>As a low-impact exercise, cycling improves joint mobility without stressing your joints. Perfect for overall joint health and arthritis management.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- Chart.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Slides and Navigation
-            const slides = document.querySelectorAll('.slide');
-            const navBtns = document.querySelectorAll('.nav-btn');
-            const prevBtn = document.getElementById('prev');
-            const nextBtn = document.getElementById('next');
-            const slideCounter = document.getElementById('slide-counter');
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const slides = document.querySelectorAll('.slide');
 
-            let currentSlide = 0;
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
 
-            // Update slide visibility and navigation state
-            function updateSlide() {
-                // Hide all slides
-                slides.forEach(slide => slide.classList.remove('active'));
-                navBtns.forEach(btn => btn.classList.remove('active'));
-
-                // Show current slide
-                slides[currentSlide].classList.add('active');
-                navBtns[currentSlide].classList.add('active');
-
-                // Update previous/next button states
-                prevBtn.disabled = (currentSlide === 0);
-                nextBtn.disabled = (currentSlide === slides.length - 1);
-
-                // Update slide counter
-                slideCounter.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
-            }
-
-            // Ensure all elements exist before adding event listeners
-            if (navBtns && prevBtn && nextBtn) {
-                // Navigation button click handlers
-                navBtns.forEach((btn, index) => {
-                    btn.addEventListener('click', () => {
-                        currentSlide = index;
-                        updateSlide();
-                    });
-                });
-
-                // Previous button
-                prevBtn.addEventListener('click', () => {
-                    if (currentSlide > 0) {
-                        currentSlide--;
-                        updateSlide();
+                const slideId = button.getAttribute('data-slide');
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                    if (slide.id === slideId) {
+                        slide.classList.add('active');
                     }
                 });
-
-                // Next button
-                nextBtn.addEventListener('click', () => {
-                    if (currentSlide < slides.length - 1) {
-                        currentSlide++;
-                        updateSlide();
-                    }
-                });
-            }
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (event) => {
-                switch(event.key) {
-                    case 'ArrowRight':
-                    case ' ':
-                        if (currentSlide < slides.length - 1) {
-                            currentSlide++;
-                            updateSlide();
-                        }
-                        break;
-                    case 'ArrowLeft':
-                        if (currentSlide > 0) {
-                            currentSlide--;
-                            updateSlide();
-                        }
-                        break;
-                }
             });
-
-            // Initial setup of growth chart
-            const ctx = document.getElementById('growth-chart');
-            if (ctx) {
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['2019', '2020', '2021', '2022', '2023'],
-                        datasets: [{
-                            label: 'Cycling Commuters',
-                            data: [100, 120, 150, 180, 240],
-                            backgroundColor: '#907AD6', // Wisteria purple
-                            borderColor: '#907AD6',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                display: false
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Indexed Riders (2019 = 100)'
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Initial slide update
-            updateSlide();
         });
     </script>
 </body>
