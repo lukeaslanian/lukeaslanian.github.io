@@ -7,7 +7,7 @@
     <style>
         /* Base styles */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -39,7 +39,7 @@
             padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 0.5rem;
-            background: white;
+            background: #fff;
             cursor: pointer;
             font-size: 1rem;
             display: flex;
@@ -50,18 +50,18 @@
         }
 
         .nav-btn:hover {
-            background: #f0f0f0;
+            background: #e0f7e0; /* Matcha green */
         }
 
         .nav-btn.active {
-            background: #2563eb;
-            color: white;
+            background: #907AD6; /* Wisteria purple */
+            color: #fff;
         }
 
         /* Slides */
         .slide {
             display: none;
-            background: white;
+            background: #fff;
             padding: 2rem;
             border-radius: 1rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -82,7 +82,7 @@
 
         /* Cards */
         .card {
-            background: white;
+            background: #fff;
             padding: 1.5rem;
             border-radius: 0.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -105,8 +105,8 @@
         }
 
         /* Typography */
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #2563eb; }
-        h2 { font-size: 2rem; margin-bottom: 1rem; color: #2563eb; }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #907AD6; }
+        h2 { font-size: 2rem; margin-bottom: 1rem; color: #907AD6; }
         h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
         
         /* Lists */
@@ -117,7 +117,7 @@
 
         ul li::before {
             content: "•";
-            color: #2563eb;
+            color: #907AD6;
             font-weight: bold;
             display: inline-block;
             width: 1rem;
@@ -146,7 +146,7 @@
             padding: 0.75rem 1.5rem;
             border: none;
             border-radius: 0.5rem;
-            background: #2563eb;
+            background: #907AD6;
             color: white;
             cursor: pointer;
             font-size: 1rem;
@@ -178,6 +178,8 @@
             height: 300px;
         }
     </style>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
 </head>
 <body>
     <div class="container">
@@ -570,8 +572,8 @@ Penn Ave:     ░░░▒▒▒░░░░</div>
                         datasets: [{
                             label: 'Cycling Commuters',
                             data: [100, 120, 150, 180, 240],
-                            backgroundColor: '#2563eb',
-                            borderColor: '#2563eb',
+                            backgroundColor: '#907AD6', // Wisteria purple
+                            borderColor: '#907AD6',
                             borderWidth: 1
                         }]
                     },
