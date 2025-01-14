@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycling Benefits & Safety</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 0;
+            background: #f5f7fa;
+            padding: 1rem 0;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            background: white;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .nav-btn.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Slides */
+        .slide {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        /* Grid layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Images */
+        .img-container {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .img-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Typography */
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #2563eb; }
+        h2 { font-size: 2rem; margin-bottom: 1rem; color: #2563eb; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+        
+        /* Lists */
+        ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #2563eb;
+            font-weight: bold;
+            display: inline-block;
+            width: 1rem;
+            margin-left: -1rem;
+        }
+
+        /* Heat map */
+        .heat-map {
+            font-family: monospace;
+            white-space: pre;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .control-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .control-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Source attribution */
+        .source {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .grid { grid-template-columns: 1fr; }
+            .nav-btn span { display: none; }
+            .nav-btn { padding: 0.75rem; }
+        }
+
+        /* Add these new styles */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #2563eb;
+            transition: width 0.3s ease;
+            z-index: 20;
+        }
+
+        .slide {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progress-bar"></div>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav" id="nav">
+            <button class="nav-btn active" data-slide="intro">🚲 <span>Intro</span></button>
+            <button class="nav-btn" data-slide="health">❤️ <span>Health</span></button>
+            <button class="nav-btn" data-slide="environmental">🌍 <span>Environment</span></button>
+            <button class="nav-btn" data-slide="rights">⚖️ <span>Laws</span></button>
+            <button class="nav-btn" data-slide="trails">🌲 <span>Trails</span></button>
+            <button class="nav-btn" data-slide="community">👥 <span>Community</span></button>
+            <button class="nav-btn" data-slide="safety">🛡️ <span>Safety</span></button>
+            <button class="nav-btn" data-slide="equipment">🔧 <span>Equipment</span></button>
+            <button class="nav-btn" data-slide="landmarks">🏛️ <span>Landmarks</span></button>
+            <button class="nav-btn" data-slide="summary">📋 <span>Summary</span></button>
+        </nav>
+
+        <!-- Slides -->
+        <div id="slides">
+            <!-- Intro -->
+            <section id="intro" class="slide active">
+                <div class="img-container" style="margin-bottom: 2rem;">
+                    <img src="https://lukeaslanian.com/cycling-images/IMG_4285.jpg" 
+                         alt="Cyclists gathering at scenic DC location">
+                </div>
+                <h1>Cycling Benefits & Safety</h1>
+                <h2>A DC Perspective</h2>
+                <p>Safety and Health Awareness Committee</p>
+                <p>January 14, 2025</p>
+                <p style="color: #64748b; margin-top: 2rem;">By Luke Aslanian</p>
+            </section>
+
+            <!-- New Health Benefits Section -->
+            <section id="health" class="slide">
+                <h2>Health Benefits of Cycling</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Physical Health Benefits</h3>
+                        <ul>
+                            <li>45% reduced risk of cardiovascular disease</li>
+                            <li>45% lower risk of cancer development</li>
+                            <li>Burns 400-750 calories per hour</li>
+                            <li>Improves joint mobility without stress</li>
+                        </ul>
+                        <p class="source">Source: British Medical Journal, 2017 Study of 264,337 participants</p>
+                    </div>
+                    <div class="card">
+                        <h3>Mental Health Impact</h3>
+                        <ul>
+                            <li>31% reduction in stress levels</li>
+                            <li>25% decrease in anxiety symptoms</li>
+                            <li>Improved sleep quality (avg. 42 min more)</li>
+                            <li>Enhanced cognitive function in older adults</li>
+                        </ul>
+                        <p class="source">Source: JAMA Psychiatry 2022, Cycling & Mental Health Study</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Long-term Health Outcomes</h3>
+                    <div class="grid">
+                        <div>
+                            <h4>Regular Cyclists (3+ times/week)</h4>
+                            <ul>
+                                <li>Extended life expectancy (+2-5 years)</li>
+                                <li>39% lower all-cause mortality rate</li>
+                                <li>60% better cardiorespiratory fitness</li>
+                            </ul>
+                            <p class="source">Source: International Journal of Environmental Research and Public Health, 2021</p>
+                        </div>
+                        <div>
+                            <h4>Economic Benefits</h4>
+                            <ul>
+                                <li>$3.42 saved in healthcare per mile cycled</li>
+                                <li>15% reduced sick days from work</li>
+                                <li>$189B annual healthcare savings potential (US)</li>
+                            </ul>
+                            <p class="source">Source: WHO Health Economic Assessment Tool (HEAT), 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="environmental" class="slide">
+                <h2>Environmental & Community Health Impact</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="img-container">
+                            <img src="https://lukeaslanian.com/cycling-images/IMG_4401.jpg" 
+                                 alt="Cyclists on car-free street">
+                        </div>
+                        <h3>Urban Health Benefits</h3>
+                        <ul>
+                            <li>Reduced air pollution exposure for children
+                                <ul>
+                                    <li>32% lower particulate matter near protected bike lanes</li>
+                                    <li>45% reduction in childhood asthma incidents</li>
+                                </ul>
+                            </li>
+                            <li>Decreased traffic congestion
+                                <ul>
+                                    <li>Each 1% shift to cycling reduces traffic by 3%</li>
+                                    <li>Lower noise pollution levels in neighborhoods</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="source">Source: Environmental Health Perspectives, 2023</p>
+                    </div>
+                    <div class="card">
+                        <h3>Community Design Impact</h3>
+                        <ul>
+                            <li>Improved street safety
+                                <ul>
+                                    <li>20% reduction in vehicle speeds</li>
+                                    <li>15% increase in street-level business activity</li>
+                                </ul>
+                            </li>
+                            <li>Enhanced public spaces
+                                <ul>
+                                    <li>40% more social interactions in bike-friendly areas</li>
+                                    <li>25% increase in local business revenue</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="source">Source: Urban Design & Planning Journal, 2023</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Environmental Impact</h3>
+                    <ul>
+                        <li>Carbon Reduction
+                            <ul>
+                                <li>250g CO2 saved per mile cycled instead of driven</li>
+                                <li>1 ton CO2 saved annually per regular bicycle commuter</li>
+                            </ul>
+                        </li>
+                        <li>Urban Heat Island Effect
+                            <ul>
+                                <li>2-3°F cooler in areas with reduced car traffic</li>
+                                <li>15% more green space in bike-friendly neighborhoods</li>
+                            </ul>
+                        </li>
+                        <li>Resource Conservation
+                            <ul>
+                                <li>90% less road wear compared to cars</li>
+                                <li>60-85% reduction in required parking space</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="source">Source: Environmental Protection Agency, 2023</p>
+                </div>
+            </section>
+
+            <!-- Laws & Rights -->
+            <section id="rights" class="slide">
+                <h2>DC Cycling Laws & Rights</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Key Rights</h3>
+                        <ul>
+                            <li>Right to ride on road - not required to "stay out of the way"</li>
+                            <li>Stop signs as yield signs (must yield to pedestrians/traffic)</li>
+                            <li>No requirement to use bike lanes</li>
+                            <li>Can ride two abreast in one lane</li>
+                            <li>Can take full lane when needed for safety</li>
+                            <li>Drivers must give 3 feet when passing</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Common Legal Scenarios</h3>
+                        <ul>
+                            <li>"Dooring" - car door opener at fault</li>
+                            <li>Cars can't park in bike lanes (report to 311)</li>
+                            <li>Construction sites must provide detours</li>
+                            <li>Drivers must yield in traffic circles</li>
+                        </ul>
+                        <p class="source">Source: WABA Pocket Guide</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trails -->
+            <section id="trails" class="slide">
+                <h2>DC Area Trails</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="img-container">
+                            <img src="https://lukeaslanian.com/cycling-images/IMG_4424.jpg" 
+                                 alt="Well-marked trail with yellow center line">
+                        </div>
+                        <h3>Well-Marked Trails</h3>
+                        <p>DC's trails feature clear markings and dedicated lanes for safety</p>
+                    </div>
+                    <div class="card">
+                        <div class="img-container">
+                            <img src="https://lukeaslanian.com/cycling-images/IMG_3444.jpg" 
+                                 alt="Red bike on wooded trail">
+                        </div>
+                        <h3>Scenic Routes</h3>
+                        <p>Many trails offer shaded, scenic rides through natural areas</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Major DC Area Trails</h3>
+                    <div class="grid">
+                        <div class="card">
+                            <h4>Capital Crescent Trail</h4>
+                            <ul>
+                                <li>Georgetown to Bethesda (7 miles)</li>
+                                <li>Parking: Fletcher's Boathouse, Bethesda Pool</li>
+                                <li>Metro: Bethesda (Red), Rosslyn (Blue/Orange)</li>
+                                <li>Highlights: C&O Canal, Little Falls, CCT Trestle</li>
+                                <li>Surface: Fully paved, gentle grade</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4>Metropolitan Branch Trail</h4>
+                            <ul>
+                                <li>Union Station to Silver Spring (8 miles)</li>
+                                <li>Parking: Fort Totten, Rhode Island Ave</li>
+                                <li>Metro: Union Station, NoMa, Brookland (Red)</li>
+                                <li>Highlights: Union Market, Dew Drop Inn</li>
+                                <li>Surface: Paved urban trail, some hills</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <h4>Anacostia Riverwalk Trail</h4>
+                            <ul>
+                                <li>Navy Yard to Kenilworth (20 miles total)</li>
+                                <li>Parking: Yards Park, Kenilworth Gardens</li>
+                                <li>Metro: Navy Yard, Anacostia (Green)</li>
+                                <li>Highlights:
+                                    <ul>
+                                        <li>Nationals Park</li>
+                                        <li>Kenilworth Aquatic Gardens</li>
+                                        <li>Kingman Island</li>
+                                        <li>Historic Anacostia</li>
+                                    </ul>
+                                </li>
+                                <li>Surface: Paved, mostly flat waterfront</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4>Mount Vernon Trail</h4>
+                            <ul>
+                                <li>Roosevelt Island to Mount Vernon (18 miles)</li>
+                                <li>Parking: Gravelly Point, Belle Haven</li>
+                                <li>Metro: Rosslyn (Blue/Orange/Silver)</li>
+                                <li>Highlights:
+                                    <ul>
+                                        <li>Roosevelt Island</li>
+                                        <li>National Airport plane watching</li>
+                                        <li>Old Town Alexandria</li>
+                                        <li>Mount Vernon Estate</li>
+                                    </ul>
+                                </li>
+                                <li>Surface: Paved, some challenging hills</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <h4>Rock Creek Park Trail</h4>
+                            <ul>
+                                <li>Georgetown to Maryland (13 miles)</li>
+                                <li>Parking: Thompson Boat Center, Pierce Mill</li>
+                                <li>Metro: Woodley Park, Van Ness (Red)</li>
+                                <li>Highlights:
+                                    <ul>
+                                        <li>National Zoo</li>
+                                        <li>Pierce Mill historic site</li>
+                                        <li>Beach Drive (car-free weekends)</li>
+                                        <li>Georgetown Waterfront</li>
+                                    </ul>
+                                </li>
+                                <li>Surface: Mixed paved/gravel, rolling hills</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4>W&OD Trail</h4>
+                            <ul></ul>
+                                <li>Shirlington to Purcellville (45 miles)</li>
+                                <li>Parking: Shirlington, Falls Church, Vienna</li>
+                                <li>Metro: East Falls Church (Orange/Silver)</li>
+                                <li>Highlights:
+                                    <ul>
+                                        <li>Caboose Brewery</li>
+                                        <li>Vienna town center</li>
+                                        <li>Reston Town Center</li>
+                                        <li>Purcellville historic district</li>
+                                    </ul>
+                                </li>
+                                <li>Surface: Paved, rail-trail grade</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community -->
+            <section id="community" class="slide">
+                <h2>DC Cycling Community</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="img-container">
+                            <img src="https://lukeaslanian.com/cycling-images/IMG_0530.jpg" 
+                                 alt="Group gathering at US Capitol">
+                        </div>
+                        <h3>Group Rides</h3>
+                        <p>Regular group rides like 626 DC bring cyclists together at iconic locations like the Capitol</p>
+                    </div>
+                    <div class="card">
+                        <div class="img-container">
+                            <img src="https://lukeaslanian.com/cycling-images/DSC_0174_l.jpg" 
+                                 alt="Community cycling event">
+                        </div>
+                        <h3>Local Groups</h3>
+                        <ul>
+                            <li>626 DC: Weekly sunrise rides</li>
+                            <li>DC Bike Party: Monthly themed rides</li>
+                            <li>BicycleSpace A.M. Coffee Rides</li>
+                            <li>WABA Community Rides</li>
+                            <li>Friday Coffee Club at Navy Memorial</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Community Integration</h3>
+                        <ul>
+                            <li>Bike Buses to School
+                                <ul>
+                                    <li>Parent-led groups to local schools</li>
+                                    <li>Safe routes program with crossing guards</li>
+                                    <li>30% increase in student cycling (2022-2023)</li>
+                                </ul>
+                            </li>
+                            <li>Neighborhood Initiatives
+                                <ul>
+                                    <li>Community bike repair workshops</li>
+                                    <li>Learn-to-ride classes for all ages</li>
+                                    <li>Bike donation programs</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="source">Source: DDOT Safe Routes to School Report 2023</p>
+                    </div>
+                    <div class="card">
+                        <h3>Capital Bikeshare</h3>
+                        <ul>
+                            <li>7,500 bikes across 700+ stations</li>
+                            <li>Single trip: $1 + $0.05/min</li>
+                            <li>24-Hour Pass: $8</li>
+                            <li>Monthly: $20</li>
+                            <li>Annual: $95</li>
+                            <li>Income-qualified memberships: $5/year</li>
+                        </ul>
+                        <p class="source">Source: Capital Bikeshare, 2024</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safety -->
+            <section id="safety" class="slide">
+                <h2>Safety Statistics & Hotspots</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>High-Risk Areas in DC</h3>
+                        <ul>
+                            <li>H Street NE Corridor
+                                <ul>
+                                    <li>Highest incident rate during rush hour</li>
+                                    <li>Focus area: intersection with 14th Street</li>
+                                </ul>
+                            </li>
+                            <li>14th Street NW
+                                <ul>
+                                    <li>Heavy mixed traffic volume</li>
+                                    <li>Critical spots: Columbia Heights area</li>
+                                </ul>
+                            </li>
+                            <li>M Street NW
+                                <ul>
+                                    <li>Complex intersection patterns</li>
+                                    <li>High pedestrian activity zones</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="source">Source: DDOT Vision Zero Data 2023</p>
+                    </div>
+                    <div class="card">
+                        <h3>Safety Improvements</h3>
+                        <ul>
+                            <li>Protected bike lanes reduced incidents by 45%</li>
+                            <li>LED street lighting improved visibility by 60%</li>
+                            <li>New intersection signals decreased crashes by 32%</li>
+                            <li>Dedicated bike boxes at stops reduced conflicts by 35%</li>
+                        </ul>
+                        <p class="source">Source: DC Department of Transportation, 2023</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Common Crash Factors</h3>
+                    <ul>
+                        <li>75% occur at intersections where drivers fail to notice cyclists</li>
+                        <li>Most dangerous times: 4-7 PM (peak traffic)</li>
+                        <li>Driver behaviors in crashes:
+                            <ul>
+                                <li>Failing to yield right of way (38%)</li>
+                                <li>Improper turns into cyclist path (22%)</li>
+                                <li>Failing to maintain safe passing distance (15%)</li>
+                                <li>Opening car doors into cyclist path ("dooring") (12%)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Add this new card -->
+                <div class="card" style="margin-top: 2rem;">
+                    <div class="img-container">
+                        <img src="https://grist.org/wp-content/uploads/2015/09/strip4-5-6.jpg" 
+                             alt="Ghost Bike Memorial">
+                    </div>
+                    <h3>Ghost Bikes: A Solemn Reminder</h3>
+                    <p>Ghost bikes are white-painted bicycles placed as memorials where cyclists have been killed. This tradition began in St. Louis in 2003 and has spread worldwide, serving as both a memorial and a quiet statement advocating for cyclist safety.</p>
+                    <p>These stark white bicycles remind both cyclists and drivers about the importance of sharing the road safely and the real human cost of traffic accidents.</p>
+                    <p class="source">Source: Ghost Bikes Memorial Project</p>
+                </div>
+            </section>
+
+            <!-- Equipment -->
+            <section id="equipment" class="slide">
+                <h2>Required & Recommended Equipment</h2>
+                <!-- Add this new card before the grid -->
+                <div class="card">
+                    <div class="img-container">
+                        <img src="https://raw.githubusercontent.com/lukeaslanian/lukeaslanian.github.io/refs/heads/main/cycling-images/IMG_7969.JPG" 
+                             alt="Properly equipped bicycle with lights and reflectors">
+                    </div>
+                    <h3>Essential Safety Equipment</h3>
+                    <p>A properly equipped bicycle includes both required and recommended safety features for optimal visibility and protection.</p>
+                </div>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Required by DC Law</h3>
+                        <ul>
+                            <li>Front white light (500ft visibility)</li>
+                            <li>Red rear reflector (50-300ft visibility)</li>
+                            <li>Working brakes</li>
+                            <li>Helmet if under age 16</li>
+                            <li>Ability to make warning noise</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Strongly Recommended</h3>
+                        <ul>
+                            <li>Helmet for all ages</li>
+                            <li>Rear light (not just reflector)</li>
+                            <li>Reflective gear or clothing</li>
+                            <li>Lock (U-lock recommended)</li>
+                            <li>Weather-appropriate gear</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Landmarks -->
+            <section id="landmarks" class="slide">
+                <h2>DC Landmarks & Destinations</h2>
+                <div class="card">
+                    <div class="img-container">
+                        <img src="https://lukeaslanian.com/cycling-images/IMG_4601.jpg" 
+                             alt="White bike at scenic overlook">
+                    </div>
+                    <h3>Scenic Views</h3>
+                    <p>DC's trail network offers numerous scenic spots perfect for taking a break</p>
+                </div>
+                <div class="card">
+                    <h3>Popular Photo Spots</h3>
+                    <ul>
+                        <li>Capitol Reflecting Pool</li>
+                        <li>Lincoln Memorial</li>
+                        <li>Tidal Basin during cherry blossom season</li>
+                        <li>Georgetown Waterfront</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="slide">
+                <h2>Key Takeaways</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Health Benefits</h3>
+                        <ul>
+                            <li>45% reduced cardiovascular disease risk</li>
+                            <li>45% lower cancer risk</li>
+                            <li>31% reduction in stress levels</li>
+                            <li>39% lower all-cause mortality rate</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Environmental Impact</h3>
+                        <ul>
+                            <li>250g CO2 saved per mile cycled</li>
+                            <li>32% lower particulate matter near bike lanes</li>
+                            <li>20% reduction in vehicle speeds</li>
+                            <li>75% reduction in required parking space</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Safety & Infrastructure</h3>
+                        <ul>
+                            <li>45% reduction in incidents with protected bike lanes</li>
+                            <li>Clear legal rights for cyclists</li>
+                            <li>Extensive trail network across DC area</li>
+                            <li>Growing community support and resources</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Getting Started</h3>
+                        <ul>
+                            <li>Join community rides to learn routes</li>
+                            <li>Try Capital Bikeshare: $1 + $0.05/min</li>
+                            <li>Take free WABA safety classes</li>
+                            <li>Use protected trails for first rides</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card" style="margin-top: 2rem; text-align: center;">
+                    <p style="font-weight: bold; color: #2563eb; font-size: 1.25rem;">
+                        Together, we're building a more bicycle-friendly DC!
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="prev" class="control-btn" disabled>Previous</button>
+            <span id="slide-counter"></span>
+            <button id="next" class="control-btn">Next</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const prevBtn = document.getElementById('prev');
+            const nextBtn = document.getElementById('next');
+            const counter = document.getElementById('slide-counter');
+            const progressBar = document.getElementById('progress-bar');
+            let currentSlide = 0;
+
+            function updateSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                navBtns.forEach(btn => btn.classList.remove('active'));
+                
+                currentSlide = index;
+                slides[currentSlide].classList.add('active');
+                navBtns[currentSlide].classList.add('active');
+                
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === slides.length - 1;
+                
+                counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+                progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+            }
+
+            // Navigation button clicks
+            navBtns.forEach((btn, index) => {
+                btn.addEventListener('click', () => updateSlide(index));
+            });
+
+            // Previous/Next buttons
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) updateSlide(currentSlide - 1);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentSlide < slides.length - 1) updateSlide(currentSlide + 1);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                    updateSlide(currentSlide - 1);
+                } else if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+                    updateSlide(currentSlide + 1);
+                }
+            });
+
+            // Initialize
+            updateSlide(0);
+        });
+    </script>
+</body>
+</html>
